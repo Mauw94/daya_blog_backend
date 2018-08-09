@@ -15,7 +15,7 @@ app.use(function (req, response, next) {
 })
 
 // db setup
-mongoose.connect('mongodb://localhost/proj18', function() {
+mongoose.connect('mongodb://localhost/blog-daya', function() {
     console.log('MongoDB connected.')
 })
 

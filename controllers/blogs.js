@@ -4,10 +4,12 @@ exports.saveBlog = function (req, res, next) {
     console.log('THE BODY: ' + req.body.content);
     const content = req.body.content;
     const date = req.body.date;
+    const title = req.body.title;
 
     const blog = new Blog({
         content: content,
-        date: date
+        date: date,
+        title: title
     });
 
     blog.save(function (err) {

@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
     content: { type: String },
-    date: { type: String }
+    date: { type: String },
+    title: { type: String }
 });
 
 const ModelClass = mongoose.model('blog', blogSchema);

@@ -1,6 +1,7 @@
 const multer = require('multer')
 const Authentication = require('./controllers/authentication')
 const Blog = require('./controllers/blogs')
+const Email = require('./controllers/emails');
 const passport = require('passport')
 const passportService = require('./services/passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
@@ -11,5 +12,6 @@ module.exports = function (app) {
     app.post('/signin', requireSignin, Authentication.signin);
     app.post('/signout', requireAuth, Authentication.signout);
     app.post('/blogs', Blog.saveBlog);
+    app.post('/emails', Email.saveEmail);
     app.get('/blogs', Blog.getBlogs);
 }

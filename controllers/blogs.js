@@ -1,7 +1,6 @@
 var Blog = require('../models/blog');
 
-exports.saveBlog = function (req, res, next) {
-    console.log('THE BODY: ' + req.body.content);
+exports.saveBlog = function (req, res, next) {    
     const content = req.body.content;
     const date = req.body.date;
     const title = req.body.title;

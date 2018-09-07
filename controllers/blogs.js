@@ -31,6 +31,32 @@ exports.getBlogs = function (req, res) {
     });
 }
 
+exports.updateBlogById = function (req, res) {
+    var item = {
+        title: req.body.title,
+        content: req.body.content,
+        date: req.body.date,
+        image: req.body.image
+    };
+    var id = req.body.id;
+    Blog.updateOne({ '_id': id }, { $set: item }, function (err, result) {
+        if (err) {
+            return next(err);
+        }
+        return res.json(result);
+    });
+}
+
+exports.deleteBlogById = function (req, res) {
+    var id = req.body.id;
+    Blog.deleteOne({ '_id': id }, function (err, result) {
+        if (err) {
+            return next(err);
+        }
+        return res.json(result);
+    });
+}
+
 exports.getBlogById = function (req, res) {
     Blog.findById(req.params.id, function (err, blog) {
         if (err) {

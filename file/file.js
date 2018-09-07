@@ -28,4 +28,9 @@ _router.post('/download', function (req, res, next) {
     res.sendFile(filepath);
 });
 
+_router.post('/deleteimage', function(req, res, next) {
+    filepath = path.join(__dirname, '../uploads') + '/' + req.body.filename;
+    
+})
+
 module.exports = _router;

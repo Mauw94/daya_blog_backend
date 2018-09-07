@@ -31,6 +31,15 @@ exports.getBlogs = function (req, res) {
     });
 }
 
+exports.getBlogById = function (req, res) {
+    Blog.findById(req.params.id, function (err, blog) {
+        if (err) {
+            return next(err);
+        }
+        return res.json(blog);
+    });
+}
+
 exports.uploadImage = function (req, res, next) {
     let mimeTypes = [
         'image/jpeg',

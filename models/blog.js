@@ -5,7 +5,7 @@ const blogSchema = new Schema({
     content: { type: String },
     date: { type: String },
     title: { type: String },
-    image: { type: String }
+    image: { type: Array }
 });
 
 const ModelClass = mongoose.model('blog', blogSchema);

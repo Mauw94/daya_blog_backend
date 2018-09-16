@@ -68,9 +68,9 @@ exports.getBlogById = function (req, res) {
 
 exports.uploadImage = function (req, res, next) {
     let mimeTypes = [
-        'image/jpeg',
-        'image/jpg',
-        'image/png'
+        'images/jpeg',
+        'images/jpg',
+        'images/png'
     ];
     console.log(req.file.mimetype);
     if (!mimeTypes.includes(req.file.mimetype)) {

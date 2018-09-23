@@ -26,4 +26,5 @@ module.exports = function (app) {
     // app.post('/blogimage', [requireAuth, uploader.single('images')], Blog.uploadImage);
     app.get('/blogs', Blog.getBlogs);
     app.get('/blogs/:id', requireAuth, Blog.getBlogById);
+    app.get('/lastthree', Blog.getLastThreeBlogs);
 }

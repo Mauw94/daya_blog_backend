@@ -66,11 +66,20 @@ exports.getBlogById = function (req, res) {
     });
 }
 
+exports.getLastThreeBlogs = function (req, res) {
+    Blog.find(function (err, blogs) {
+        if (err) {
+            return next(err);
+        }
+        return res.json(blogs);
+    }).sort({ $natural: -1 }).limit(3);
+}
+
 exports.uploadImage = function (req, res, next) {
     let mimeTypes = [
-        'image/jpeg',
-        'image/jpg',
-        'image/png'
+        'images/jpeg',
+        'images/jpg',
+        'images/png'
     ];
     console.log(req.file.mimetype);
     if (!mimeTypes.includes(req.file.mimetype)) {

@@ -48,7 +48,8 @@ exports.updateBlogById = function (req, res) {
 }
 
 exports.deleteBlogById = function (req, res) {
-    var id = req.body.id;
+    var id = req.params.id;
+    console.log(id);
     Blog.deleteOne({ '_id': id }, function (err, result) {
         if (err) {
             return next(err);
@@ -64,6 +65,15 @@ exports.getBlogById = function (req, res) {
         }
         return res.json(blog);
     });
+}
+
+exports.getLastUploadedBlog = function (req, res) {
+  Blog.find(function(err, blog) {
+    if (err) {
+      return next(err);
+    }
+    return res.json(blog);
+  }).sort({$natural: -1}).limit(1);
 }
 
 exports.getLastThreeBlogs = function (req, res) {

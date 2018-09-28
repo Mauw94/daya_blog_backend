@@ -22,7 +22,7 @@ module.exports = function (app) {
     app.post('/blogs', Blog.saveBlog);
     app.post('/emails', Email.saveEmail);
     app.post('/updateblog', requireAuth, Blog.updateBlogById);
-    app.post('/deleteblog', requireAuth, Blog.deleteBlogById);
+    app.get('/deleteblog/:id', requireAuth, Blog.deleteBlogById);
     // app.post('/blogimage', [requireAuth, uploader.single('images')], Blog.uploadImage);
     app.get('/blogs', Blog.getBlogs);
     app.get('/blogs/:id', requireAuth, Blog.getBlogById);

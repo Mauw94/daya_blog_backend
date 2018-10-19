@@ -6,6 +6,7 @@ const passport = require('passport')
 const passportService = require('./services/passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
+const cool = require('cool-ascii-faces');
 
 module.exports = function (app) {
 
@@ -27,4 +28,5 @@ module.exports = function (app) {
     app.get('/blogs', Blog.getBlogs);
     app.get('/blogs/:id', requireAuth, Blog.getBlogById);
     app.get('/lastthree', Blog.getLastThreeBlogs);
+    app.get('/cool', (req, res) => res.send(cool()));
 }

@@ -29,7 +29,10 @@ app.use('/file', fileRoutes);
 router(app)
 
 // server setup
-const port = process.env.port || 3000
+const port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
 const server = http.createServer(app)
-server.listen(port)
+server.listen(port);
 console.log('Server listening on: ', port)
